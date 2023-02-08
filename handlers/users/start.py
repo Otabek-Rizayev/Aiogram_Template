@@ -13,8 +13,7 @@ async def start_base(message: types.Message):
     try:
         user = await commands.select_user(message.from_user.id)
         if user.status == "active":
-            await message.answer(f"Salom! {user.full_name}",
-                                 f"Siz bazaga kiritilgansiz!")
+            await message.answer(f"Siz bazaga kiritilgansiz! {user.full_name}")
         elif user.status == "banned":
             await message.answer("Siz botdan foydalana olmaysiz!")
     except Exception:
