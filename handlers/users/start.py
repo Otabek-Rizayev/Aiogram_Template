@@ -1,7 +1,6 @@
 from aiogram import types
 from aiogram.dispatcher.filters.builtin import CommandStart
 from loader import dp
-from keyboards.default.main_kb import mainbtn, mainreg
 from filters import IsPrivate
 from utils.misc import rate_limit
 from utils.db_api import quick_commands as commands
@@ -9,7 +8,7 @@ from utils.db_api import quick_commands as commands
 @rate_limit(limit=3)
 @dp.message_handler(IsPrivate(), commands="start")
 async def start_base(message: types.Message):
-    await message.answer("salom!", reply_markup=mainreg)
+    await message.answer("salom!")
     try:
         user = await commands.select_user(message.from_user.id)
         if user.status == "active":

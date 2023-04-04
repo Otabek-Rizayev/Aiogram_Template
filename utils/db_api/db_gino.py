@@ -33,6 +33,6 @@ class TimedBaseModel(BaseModel):
         onupdate=datetime.datetime.utcnow,
         server_default=db.func.now())
 
-async def on_startup_base(dispatcher: Dispatcher):
-	print("postgresql ishga tushdi!")
+async def on_startup(dispatcher: Dispatcher):
+	print("postgresql ishga tushdi! - 1")
 	await db.set_bind(config.POSTGRES_URI)
